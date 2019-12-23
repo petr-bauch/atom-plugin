@@ -1,0 +1,35 @@
+{
+  "name": "deepcode",
+  "main": "./lib/deepcode",
+  "version": "0.0.1",
+  "description": "Detect bugs and quality issues in JavaScript, TypeScript, React, Vue and more...",
+  "keywords": [
+    "code analysis",
+    "java",
+    "javascript",
+    "typescript",
+    "python"
+  ],
+  "activationCommands": {
+    "atom-workspace": "deepcode:open-info-panel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeepCodeAI/atom-extension.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {},
+  "deserializers": {
+    "deepcode/DeepcodeView": "deserializeDeepcodeView"
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  }
+}
