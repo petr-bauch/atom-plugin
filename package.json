@@ -10,20 +10,18 @@
     "typescript",
     "python"
   ],
-  "activationCommands": {
-    "atom-workspace": "deepcode:open-info-panel"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DeepCodeAI/atom-extension.git"
+    "url": "https://github.com/DeepCodeAI/atom-plugin.git"
   },
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {},
-  "deserializers": {
-    "deepcode/DeepcodeView": "deserializeDeepcodeView"
+  "dependencies": {
+    "open": "^7.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
   },
   "consumedServices": {
     "status-bar": {
