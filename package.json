@@ -19,6 +19,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "ignore": "^5.1.4",
     "open": "^7.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.5"

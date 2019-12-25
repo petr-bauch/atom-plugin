@@ -7,3 +7,60 @@
 .deepcode {
   padding: 8px;
 }
+
+.dc-status {
+
+}
+
+.tooltip.top.dc-tooltip {
+  min-width: 120px;
+
+  .tooltip-arrow {
+    border-top-color: @tool-panel-background-color;
+  }
+  .tooltip-inner {
+    background-color: @tool-panel-background-color;
+    padding: 8px 4px;
+
+    .dc-menu-container {
+      background-color: @tool-panel-background-color;
+      text-align: left;
+
+      .dc-menu-item {
+        padding: 8px 16px;
+        cursor: pointer;
+        text-align: left;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: @base-background-color;
+        }
+      }
+    }
+
+    .dc-scanning-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 8px;
+      text-align: left;
+
+      .icon {
+        font-size: @component-icon-size;
+        margin-right: 8px;
+      }
+
+      .info-container {
+        .title {
+          padding: 4px;
+        }
+        .info {
+          padding: 4px;
+        }
+      }
+    }
+  }
+}
