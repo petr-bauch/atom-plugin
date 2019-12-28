@@ -37,5 +37,7 @@ module.exports = {
     'prefer-object-spread': 'off',
     'arrow-parens': 'off',
     'no-restricted-syntax': 'off',
+    'no-tabs': 'off',
+    'indent': 'off',
   },
 };
