@@ -39,5 +39,6 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'no-tabs': 'off',
     'indent': 'off',
+    'object-curly-newline': 'off',
   },
 };
