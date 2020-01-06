@@ -4,8 +4,92 @@
 // for a full listing of what's available.
 @import "ui-variables";
 
+@width-severity: 20px;
+@width-position: 100px;
+@width-file: 50%;
+@width-message: 50%;
+@light-background: lighten(@tool-panel-background-color, 5%);
+
 .deepcode {
-  padding: 8px;
+  width: 100%;
+  padding: 4px;
+
+  .row {
+    display: flex;
+    align-items: center;
+    height: 28px;
+
+    .col {
+      padding: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.severity {
+        width: @width-severity;
+      }
+
+      &.position {
+        width: @width-position;
+      }
+
+      &.file {
+        width: @width-file;
+      }
+
+      &.message {
+        width: @width-message;
+      }
+    }
+  }
+
+  .dc-table-head {
+    width: calc(~'100% - 12px');
+    background-color: @light-background;
+
+    .row {
+      height: 28px;
+
+      .col {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .dc-table {
+    width: 100%;
+    margin-top: 4px;
+
+    .row {
+      cursor: pointer;
+      transition: all 0.1s linear;
+
+      &:hover {
+        background-color: @light-background;
+      }
+
+      .col {
+        &.file {
+          .name {
+            color: @text-color-highlight;
+            margin-right: 8px;
+          }
+          .path {
+            color: @text-color-subtle;
+          }
+        }
+        .icon-info {
+          color: @background-color-info;
+        }
+        .icon-issue-opened {
+          color: @background-color-warning;
+        }
+        .icon-alert {
+          color: @background-color-error;
+        }
+      }
+    }
+  }
 }
 
 .dc-status {
