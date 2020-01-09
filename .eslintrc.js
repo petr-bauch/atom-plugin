@@ -30,6 +30,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'no-console': 'off',
     'no-undef': 'off',
+    'no-plusplus': 'off',
     'class-methods-use-this': 'off',
     'max-len': 'off',
     'padded-blocks': 'off',
