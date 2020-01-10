@@ -1,6 +1,6 @@
 # DeepCode package for Atom
 
-> Package is still in active phase of development 
+> Package is still in active phase of development
 
 Atom package provided by <a href="https://www.deepcode.ai/">DeepCode.ai</a> to detect important bugs and issues
 in your code. Supports Java, Python, JavaScript, TypeScript and XML.
@@ -31,11 +31,16 @@ Inspect all found issues using "Problems" tab and syntax highlight:
 
 # Development
 
-For development purposes you will need to install Atom from official website: [atom.io](https://atom.io/). 
+For development purposes you will need to install Atom from official website: [atom.io](https://atom.io/).
 
 Clone this repository:
 ```shell script
 $ git clone https://github.com/DeepCodeAI/atom-plugin.git
+```
+
+Install npm dependencies:
+```shell script
+$ npm install
 ```
 
 Go to the folder with cloned project and create symlink for plugin:
@@ -46,7 +51,7 @@ $ apm link
 
 > Read more about [Atom Package Manager](https://flight-manual.atom.io/using-atom/sections/atom-packages/#command-line)
 
-After that you can open any project in Atom and use package `DeepCode`. 
+After that you can open any project in Atom and use package `DeepCode`.
 
 To remove plugin type:
 ```shell script
