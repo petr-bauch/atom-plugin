@@ -25,10 +25,10 @@ module.exports = {
     'no-unused-vars': 'warn',
     'no-continue': 'warn',
     'no-trailing-spaces': 'warn',
+    'no-console': 'warn',
 
     'import/prefer-default-export': 'off',
     'import/no-unresolved': 'off',
-    'no-console': 'off',
     'no-undef': 'off',
     'no-plusplus': 'off',
     'class-methods-use-this': 'off',
