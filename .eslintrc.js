@@ -41,5 +41,6 @@ module.exports = {
     'no-tabs': 'off',
     'indent': 'off',
     'object-curly-newline': 'off',
+    'arrow-body-style': 'off',
   },
 };

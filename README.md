@@ -29,32 +29,30 @@ Inspect all found issues using "Problems" tab and syntax highlight:
 
 ![deepcode problem](images/problem.png)
 
-# Development
+# Available commands from status bar button
 
-For development purposes you will need to install Atom from official website: [atom.io](https://atom.io/).
+### Open panel
 
-Clone this repository:
-```shell script
-$ git clone https://github.com/DeepCodeAI/atom-plugin.git
-```
+Opens panel with list of problems and makes request for checking analysis status.
+If there is no created bundle and changed files are present, it starts creating bundle process.
 
-Install npm dependencies:
-```shell script
-$ npm install
-```
+### Scan project
 
-Go to the folder with cloned project and create symlink for plugin:
-```shell script
-$ cd atom-plugin
-$ apm link
-```
+Makes full re-scan of project and marks all files as changed,
+so they will be uploaded to server and analyzed.
 
-> Read more about [Atom Package Manager](https://flight-manual.atom.io/using-atom/sections/atom-packages/#command-line)
+This command always creates a new bundle.
 
-After that you can open any project in Atom and use package `DeepCode`.
+### Settings
 
-To remove plugin type:
-```shell script
-$ cd atom-plugin
-$ apm unlink
-```
+Opens settings view for package.
+
+### Reset plugin
+
+Removes all stored info about plugin: login, project data. It behaves like you install the plugin
+at first time: you will be asked for login, confirmation folders and so on.
+
+Can be useful for development purposes or for changing settings.
+
+> Please, note that this command doesn't reset any global package settings that are available
+> on settings view (menu "Packages" -> "Settings view" -> "Manage packages" -> "DeepCode"). 
