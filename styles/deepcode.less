@@ -47,6 +47,29 @@
   }
 }
 
+.dc-status {
+  a.count {
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: @font-size;
+    opacity: 0.7;
+
+    .icon {
+      font-size: 9px;
+    }
+
+    &.info {
+      color: lighten(@background-color-info, 30%);
+    }
+    &.warning {
+      color: lighten(@background-color-warning, 30%);
+    }
+    &.critical {
+      color: lighten(@background-color-error, 30%);
+    }
+  }
+}
+
 .dc-panel {
   width: 100%;
   padding: 4px;
