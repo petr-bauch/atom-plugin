@@ -19,7 +19,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "scripts": {
-    "lint": "npx eslint --fix lib"
+    "lint": "npx eslint lib"
   },
   "dependencies": {
     "ignore": "^5.1.4",
