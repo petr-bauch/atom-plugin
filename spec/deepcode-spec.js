@@ -1,73 +1,57 @@
 'use babel';
 
-import Deepcode from '../lib/deepcode';
+import { STORE_KEYS } from '../lib/constants/store';
+import { mockState } from './mocks';
 
-// Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-//
-// To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-// or `fdescribe`). Remove the `f` to unfocus the block.
-
-describe('Deepcode', () => {
-  let workspaceElement, activationPromise;
+describe('Deepcode Plugin tests', () => {
+  let workspaceElement;
+  let activationPromise;
+  let dcPackage;
 
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
-    activationPromise = atom.packages.activatePackage('deepcode');
+    activationPromise = async () => {
+      await atom.packages.activatePackage('deepcode');
+      const pkg = atom.packages.getActivePackage('deepcode');
+
+      dcPackage = pkg.mainModule;
+
+      dcPackage.setPluginState(mockState);
+      dcPackage.initHTTP(mockState[STORE_KEYS.serviceURL]);
+
+      return Promise.resolve();
+    }
   });
 
-  describe('when the deepcode:toggle event is triggered', () => {
-    it('hides and shows the modal panel', () => {
-      // Before the activation event the view is not on the DOM, and no panel
-      // has been created
-      expect(workspaceElement.querySelector('.deepcode')).not.toExist();
-
-      // This is an activation event, triggering it will cause the package to be
-      // activated.
-      atom.commands.dispatch(workspaceElement, 'deepcode:toggle');
-
-      waitsForPromise(() => {
-        return activationPromise;
-      });
-
-      runs(() => {
-        expect(workspaceElement.querySelector('.deepcode')).toExist();
-
-        let deepcodeElement = workspaceElement.querySelector('.deepcode');
-        expect(deepcodeElement).toExist();
-
-        let deepcodePanel = atom.workspace.panelForItem(deepcodeElement);
-        expect(deepcodePanel.isVisible()).toBe(true);
-        atom.commands.dispatch(workspaceElement, 'deepcode:toggle');
-        expect(deepcodePanel.isVisible()).toBe(false);
-      });
+  describe('Pre-test configuring', () => {
+    beforeEach(() => {
+      waitsForPromise(activationPromise);
     });
 
-    it('hides and shows the view', () => {
-      // This test shows you an integration test testing at the view level.
+    it('Shared state is configured properly', () => {
+      const state = dcPackage.getPluginState();
+      const keys = [
+        STORE_KEYS.accountType,
+        STORE_KEYS.sessionToken,
+        STORE_KEYS.serviceURL,
+      ];
+      for (const key of keys) {
+        expect(state[key]).toEqual(mockState[key]);
+      }
+    });
 
-      // Attaching the workspaceElement to the DOM is required to allow the
-      // `toBeVisible()` matchers to work. Anything testing visibility or focus
-      // requires that the workspaceElement is on the DOM. Tests that attach the
-      // workspaceElement to the DOM are generally slower than those off DOM.
-      jasmine.attachToDOM(workspaceElement);
-
-      expect(workspaceElement.querySelector('.deepcode')).not.toExist();
-
-      // This is an activation event, triggering it causes the package to be
-      // activated.
-      atom.commands.dispatch(workspaceElement, 'deepcode:toggle');
-
-      waitsForPromise(() => {
-        return activationPromise;
-      });
-
-      runs(() => {
-        // Now we can test for view visibility
-        let deepcodeElement = workspaceElement.querySelector('.deepcode');
-        expect(deepcodeElement).toBeVisible();
-        atom.commands.dispatch(workspaceElement, 'deepcode:toggle');
-        expect(deepcodeElement).not.toBeVisible();
-      });
+    it('Project state is configured properly', () => {
+      const state = dcPackage.getPluginState();
+      const keys = [
+        STORE_KEYS.confirmedFolders,
+        STORE_KEYS.allowedFiles,
+        STORE_KEYS.bundleID,
+        STORE_KEYS.firstStart,
+      ];
+      for (const key of keys) {
+        expect(state[key]).toEqual(mockState[key]);
+      }
     });
   });
+
 });
