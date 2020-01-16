@@ -2,12 +2,8 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "DeepCode: Open pane",
-        "command": "deepcode:open-info-panel"
-      },
-      {
-        "label": "DeepCode: Settings",
-        "command": "deepcode:settings"
+        "label": "DeepCode: Open panel",
+        "command": "deepcode:open-problems-panel"
       }
     ]
   },
@@ -19,12 +15,8 @@
           "label": "DeepCode",
           "submenu": [
             {
-              "label": "Open pane",
-              "command": "deepcode:open-info-panel"
-            },
-            {
-              "label": "Settings",
-              "command": "deepcode:settings"
+              "label": "Open panel",
+              "command": "deepcode:open-problems-panel"
             }
           ]
         }

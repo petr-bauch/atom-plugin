@@ -32,5 +32,5 @@ export const startMockServer = () => {
     }
   });
 
-  mockedServer.get(`/${API.filters}`).reply(200, mockState[STORE_KEYS.allowedFiles]);
+  mockedServer.get(API.filters).reply(200, mockState[STORE_KEYS.allowedFiles]);
 };
