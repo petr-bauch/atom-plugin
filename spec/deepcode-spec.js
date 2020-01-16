@@ -56,13 +56,24 @@ describe('Deepcode Plugin tests', () => {
     });
   });
 
-
   describe('Fetching files filters list', () => {
     beforeEach(() => {
       waitsForPromise(activationPromise);
     });
 
+    const checkFiltersPromise = new Promise(resolve => {
+      dcPackage.checkFilters();
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    });
+
     it('fetched filters from server', () => {
+      waitsForPromise(checkFiltersPromise);
+
+      const state = dcPackage.getPluginState();
+      console.log('deepcode-spec.js,  [75]: ', { state });
+
       expect(true).toEqual(true);
     })
   })
