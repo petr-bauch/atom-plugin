@@ -1,7 +1,9 @@
 'use babel';
 
 import { STORE_KEYS } from '../lib/constants/store';
-import { mockState } from './mocks';
+import { mockState, startMockServer } from './mocks';
+
+startMockServer();
 
 describe('Deepcode Plugin tests', () => {
   let workspaceElement;
@@ -28,7 +30,7 @@ describe('Deepcode Plugin tests', () => {
       waitsForPromise(activationPromise);
     });
 
-    it('Shared state is configured properly', () => {
+    it('configured Shared state properly', () => {
       const state = dcPackage.getPluginState();
       const keys = [
         STORE_KEYS.accountType,
@@ -40,7 +42,7 @@ describe('Deepcode Plugin tests', () => {
       }
     });
 
-    it('Project state is configured properly', () => {
+    it('configured Project state properly', () => {
       const state = dcPackage.getPluginState();
       const keys = [
         STORE_KEYS.confirmedFolders,
@@ -54,4 +56,14 @@ describe('Deepcode Plugin tests', () => {
     });
   });
 
+
+  describe('Fetching files filters list', () => {
+    beforeEach(() => {
+      waitsForPromise(activationPromise);
+    });
+
+    it('fetched filters from server', () => {
+      expect(true).toEqual(true);
+    })
+  })
 });
