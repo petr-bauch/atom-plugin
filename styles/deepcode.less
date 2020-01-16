@@ -12,6 +12,11 @@
 @light-background: lighten(@tool-panel-background-color, 3%);
 @title-color: lighten(@background-color-info, 20%);
 
+@critical: @background-color-error;
+@warning: @background-color-warning;
+@info: @background-color-info;
+@ok: @background-color-success;
+
 .wavy-border(@color) {
   background-image:
           linear-gradient(45deg, transparent 65%, @color 80%, transparent 90%),
@@ -59,14 +64,18 @@
       font-size: 9px;
     }
 
+    &.ok {
+      color: lighten(@ok, 30%);
+      margin-left: 4px;
+    }
     &.info {
-      color: lighten(@background-color-info, 30%);
+      color: lighten(@info, 30%);
     }
     &.warning {
-      color: lighten(@background-color-warning, 30%);
+      color: lighten(@warning, 30%);
     }
     &.critical {
-      color: lighten(@background-color-error, 30%);
+      color: lighten(@critical, 30%);
     }
   }
 }
@@ -179,13 +188,13 @@
         }
         .icon {
           &.info {
-            color: @background-color-info;
+            color: @info;
           }
           &.warning {
-            color: @background-color-warning;
+            color: @warning;
           }
           &.critical {
-            color: @background-color-error;
+            color: @critical;
           }
         }
         .message {
@@ -334,13 +343,13 @@
 }
 
 .dc-linter-info {
-  .wavy-border(@background-color-info);
+  .wavy-border(@info);
 }
 .dc-linter-warning {
-  .wavy-border(@background-color-warning);
+  .wavy-border(@warning);
 }
 .dc-linter-critical {
-  .wavy-border(@background-color-error);
+  .wavy-border(@critical);
 }
 
 .dc-linter-overlay {
@@ -354,13 +363,13 @@
   }
 
   &.info {
-    .linter-tooltip(@background-color-info);
+    .linter-tooltip(@info);
   }
   &.warning {
-    .linter-tooltip(@background-color-warning);
+    .linter-tooltip(@warning);
   }
   &.critical {
-    .linter-tooltip(@background-color-error);
+    .linter-tooltip(@critical);
   }
 
   .buttons-box {
