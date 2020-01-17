@@ -61,20 +61,23 @@ describe('Deepcode Plugin tests', () => {
       waitsForPromise(activationPromise);
     });
 
-    const checkFiltersPromise = new Promise(resolve => {
-      dcPackage.checkFilters();
-      setTimeout(() => {
-        resolve();
-      }, 1000);
-    });
-
     it('fetched filters from server', () => {
-      waitsForPromise(checkFiltersPromise);
+
+      dcPackage.setPluginState({
+        [STORE_KEYS.allowedFiles]: {},
+      });
+
+      const checkFiltersPromise = new Promise(resolve => {
+        dcPackage.checkFilters();
+        resolve();
+      });
+
+      waitsForPromise(() => checkFiltersPromise);
 
       const state = dcPackage.getPluginState();
       console.log('deepcode-spec.js,  [75]: ', { state });
 
-      expect(true).toEqual(true);
+      expect(state[STORE_KEYS.allowedFiles]).toEqual(mockState[STORE_KEYS.allowedFiles]);
     })
   })
 });
