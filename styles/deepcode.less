@@ -53,6 +53,12 @@
   }
 }
 
+.ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .dc-status {
   a.count {
     margin-left: 2px;
@@ -90,17 +96,20 @@
     align-items: center;
     background-color: @light-background;
     height: 32px;
-    padding: 4px 8px;
+    padding: 0px 8px;
 
     .left {
       display: flex;
       align-items: center;
+      height: 100%;
 
       .title {
+        .ellipsis();
         color: @title-color;
         font-size: 13px;
       }
       .analysis-url {
+        .ellipsis();
         color: @text-color-subtle;
         margin-left: 16px;
         &:hover {
@@ -112,12 +121,51 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      a.collapse,
-      a.expand {
-        color: @text-color-subtle;
-        margin-left: 8px;
-        &:hover {
-          color: @text-color;
+      height: 100%;
+
+      .icon {
+        font-size: 10px;
+      }
+
+      .plugin-buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+        height: 100%;
+
+        .pm-btn {
+          .ellipsis();
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          padding: 0px 12px;
+          cursor: pointer;
+          height: 100%;
+
+          &:hover {
+            background-color: @tool-panel-background-color;
+            color: @text-color-highlight;
+          }
+        }
+      }
+
+      .tree-settings {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-left: 12px;
+
+        .title {
+          .ellipsis();
+          margin-right: 4px;
+        }
+        a.collapse,
+        a.expand {
+          color: @text-color-subtle;
+          margin-left: 8px;
+          &:hover {
+            color: @text-color;
+          }
         }
       }
     }
