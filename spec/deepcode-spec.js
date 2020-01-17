@@ -69,7 +69,9 @@ describe('Deepcode Plugin tests', () => {
 
       const checkFiltersPromise = new Promise(resolve => {
         dcPackage.checkFilters();
-        resolve();
+        setTimeout(() => {
+          resolve();
+        }, 100);
       });
 
       waitsForPromise(() => checkFiltersPromise);
