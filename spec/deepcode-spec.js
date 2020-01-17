@@ -9,6 +9,7 @@ describe('Deepcode Plugin tests', () => {
   let workspaceElement;
   let activationPromise;
   let dcPackage;
+  let timerCallback;
 
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
@@ -23,6 +24,9 @@ describe('Deepcode Plugin tests', () => {
 
       return Promise.resolve();
     }
+
+    timerCallback = jasmine.createSpy('timerCallback');
+    jasmine.Clock.useMock();
   });
 
   describe('Pre-test configuring', () => {
@@ -62,24 +66,18 @@ describe('Deepcode Plugin tests', () => {
     });
 
     it('fetched filters from server', () => {
-
       dcPackage.setPluginState({
         [STORE_KEYS.allowedFiles]: {},
       });
 
-      const checkFiltersPromise = new Promise(resolve => {
+      runs(() => {
         dcPackage.checkFilters();
+
         setTimeout(() => {
-          resolve();
-        }, 100);
+          const state = dcPackage.getPluginState();
+          expect(state[STORE_KEYS.allowedFiles]).toEqual(mockState[STORE_KEYS.allowedFiles]);
+        }, 1000);
       });
-
-      waitsForPromise(() => checkFiltersPromise);
-
-      const state = dcPackage.getPluginState();
-      console.log('deepcode-spec.js,  [75]: ', { state });
-
-      expect(state[STORE_KEYS.allowedFiles]).toEqual(mockState[STORE_KEYS.allowedFiles]);
     })
   })
 });
