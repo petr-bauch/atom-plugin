@@ -1,9 +1,12 @@
 'use babel';
 
+import path from 'path';
 import nock from 'nock';
 
 import { STORE_KEYS } from '../lib/constants/store';
 import { API } from '../lib/constants/api';
+
+const mockProjectPath = path.resolve(__dirname, 'mocked_data');
 
 export const mockState = {
   // shared
@@ -12,7 +15,7 @@ export const mockState = {
   [STORE_KEYS.serviceURL]: 'http://localhost:3000/',
 
   // project
-  [STORE_KEYS.confirmedFolders]: [],
+  [STORE_KEYS.confirmedFolders]: [mockProjectPath],
   [STORE_KEYS.allowedFiles]: {
     extensions: [".java", ".html", ".js", ".jsx", ".ts", ".tsx", ".vue", ".py"],
     configFiles: [".pmdrc.xml", ".ruleset.xml", "ruleset.xml", ".eslintrc.js", ".eslintrc.json", ".eslintrc.yml", "tslint.json", ".pylintrc", "pylintrc"],
