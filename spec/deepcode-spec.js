@@ -71,12 +71,9 @@ describe('Deepcode Plugin tests', () => {
       });
 
       runs(() => {
-        dcPackage.checkFilters();
-
-        setTimeout(() => {
-          const state = dcPackage.getPluginState();
-          expect(state[STORE_KEYS.allowedFiles]).toEqual(mockState[STORE_KEYS.allowedFiles]);
-        }, 1000);
+        dcPackage.checkFilters(result => {
+          expect(result).toEqual(mockState[STORE_KEYS.allowedFiles]);
+        });
       });
     })
   })
