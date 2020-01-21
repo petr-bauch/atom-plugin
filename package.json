@@ -1,7 +1,7 @@
 {
   "name": "deepcode",
   "main": "./lib/deepcode",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Detect bugs and quality issues in JavaScript, TypeScript, React, Vue and more...",
   "keywords": [
     "code analysis",
