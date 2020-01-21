@@ -1,5 +1,7 @@
 'use babel';
 
+import { keys } from 'lodash';
+
 import { STORE_KEYS } from '../lib/constants/store';
 import { mockState, startMockServer, mockBundle, mockAnalysisResults, mockAnalysisTable } from './mocks';
 
@@ -82,8 +84,16 @@ describe('Deepcode Plugin tests', () => {
     it('creates bundle', () => {
       waitsForPromise(async () => {
         const bundle = await dcPackage.createBundle();
-        expect(bundle).toEqual(mockBundle);
-      })
+
+        console.log('Test #4: It creates bundle', { bundle, mockBundle });
+
+        for (const key of keys(mockBundle.files)) {
+          const hash = bundle.files[key];
+          const mockHash = mockBundle.files[key];
+
+          expect(hash).toEqual(mockHash);
+        }
+      });
     });
   });
 
@@ -92,13 +102,15 @@ describe('Deepcode Plugin tests', () => {
       waitsForPromise(activationPromise);
     });
 
-    it('creates bundle', () => {
+    it('creates remote bundle', () => {
       dcPackage.setPluginState({
         [STORE_KEYS.bundleID]: '',
       });
 
       waitsForPromise(async () => {
         const { bundleId, chunks } = await dcPackage.createRemoteBundle();
+
+        console.log('Test #5: It creates remote bundle', { bundleId, chunks });
 
         expect(bundleId).toEqual(mockState[STORE_KEYS.bundleID]);
         expect(chunks.length).toEqual(1);
@@ -120,6 +132,8 @@ describe('Deepcode Plugin tests', () => {
 
       waitsForPromise(async () => {
         const { origin, table } = await dcPackage.checkAnalysis();
+
+        console.log('Test #6: It analyses bundle', { origin, table, mockAnalysisResults, mockAnalysisTable });
 
         expect(origin).toEqual(mockAnalysisResults);
         expect(table).toEqual(mockAnalysisTable);
