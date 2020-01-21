@@ -1,7 +1,7 @@
 'use babel';
 
 import { STORE_KEYS } from '../lib/constants/store';
-import { mockState, startMockServer } from './mocks';
+import { mockState, startMockServer, mockBundle, mockAnalysisResults, mockAnalysisTable } from './mocks';
 
 startMockServer();
 
@@ -9,7 +9,6 @@ describe('Deepcode Plugin tests', () => {
   let workspaceElement;
   let activationPromise;
   let dcPackage;
-  let timerCallback;
 
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
@@ -24,9 +23,6 @@ describe('Deepcode Plugin tests', () => {
 
       return Promise.resolve();
     }
-
-    timerCallback = jasmine.createSpy('timerCallback');
-    jasmine.Clock.useMock();
   });
 
   describe('Pre-test configuring', () => {
@@ -65,7 +61,7 @@ describe('Deepcode Plugin tests', () => {
       waitsForPromise(activationPromise);
     });
 
-    it('fetched filters from server', () => {
+    it('fetches filters from server', () => {
       dcPackage.setPluginState({
         [STORE_KEYS.allowedFiles]: {},
       });
@@ -75,6 +71,59 @@ describe('Deepcode Plugin tests', () => {
           expect(result).toEqual(mockState[STORE_KEYS.allowedFiles]);
         });
       });
-    })
-  })
+    });
+  });
+
+  describe('Creating hashes bundle', () => {
+    beforeEach(() => {
+      waitsForPromise(activationPromise);
+    });
+
+    it('creates bundle', () => {
+      waitsForPromise(async () => {
+        const bundle = await dcPackage.createBundle();
+        expect(bundle).toEqual(mockBundle);
+      })
+    });
+  });
+
+  describe('Creating remote bundle', () => {
+    beforeEach(() => {
+      waitsForPromise(activationPromise);
+    });
+
+    it('creates bundle', () => {
+      dcPackage.setPluginState({
+        [STORE_KEYS.bundleID]: '',
+      });
+
+      waitsForPromise(async () => {
+        const { bundleId, chunks } = await dcPackage.createRemoteBundle();
+
+        expect(bundleId).toEqual(mockState[STORE_KEYS.bundleID]);
+        expect(chunks.length).toEqual(1);
+        expect(chunks[0].length).toEqual(4);
+      })
+    });
+  });
+
+  describe('Analyzing', () => {
+    beforeEach(() => {
+      waitsForPromise(activationPromise);
+    });
+
+    it('analyses bundle', () => {
+      dcPackage.setPluginState({
+        [STORE_KEYS.analysisResults]: { origin: {}, table: [] },
+        [STORE_KEYS.analysisURL]: '',
+      });
+
+      waitsForPromise(async () => {
+        const { origin, table } = await dcPackage.checkAnalysis();
+
+        expect(origin).toEqual(mockAnalysisResults);
+        expect(table).toEqual(mockAnalysisTable);
+      })
+    });
+  });
 });
