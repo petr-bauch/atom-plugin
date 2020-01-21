@@ -35,8 +35,8 @@ export const mockAnalysisResults = {
 
 export const mockAnalysisTable = [
   {
-    fileName: '/home/incode/WIP/DeepCode/atom-plugin/spec/mocked_data/sample_repository/main.js',
-    localPath: '/home/incode/WIP/DeepCode/atom-plugin/spec/mocked_data/sample_repository/main.js',
+    fileName: `${mockProjectPath}/sample_repository/main.js`,
+    localPath: `${mockProjectPath}/sample_repository/main.js`,
     localName: 'main.js',
     message: 'some message',
     position: '[1, 3]',
