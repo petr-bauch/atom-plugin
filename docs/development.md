@@ -41,8 +41,24 @@ During development you may want to reset the whole plugin. It is available via c
 In order to use this command open command panel in Atom (`Ctrl` + `Shift` + `P`) and find
 command titled as `Deepcode: Reset Plugin`.
 
-##Testing
+## Testing
 
 In order to run tests open plugin folder in `Atom` and use menu command
 `View` -> `Developer` -> `Run Package Specs`
 or just press `Ctrl` + `Shift` + `Y`.
+
+## Publishing
+
+In order to publish package to the [atom.io package registry](https://atom.io/packages)
+you may use the `apm publish` command:
+```shell script
+$ cd atom-plugin
+$ apm publish <version-type>
+
+# where <version-type> is one of:
+# - patch
+# - minor
+# - major
+```
+
+To read more about publishing visit [official docs page](https://flight-manual.atom.io/hacking-atom/sections/publishing/).
