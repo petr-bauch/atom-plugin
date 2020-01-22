@@ -69,7 +69,6 @@ export const mockState = {
     configFiles: ['.pmdrc.xml', '.ruleset.xml', 'ruleset.xml', '.eslintrc.js', '.eslintrc.json', '.eslintrc.yml', 'tslint.json', '.pylintrc', 'pylintrc'],
   },
   [STORE_KEYS.bundleID]: bundleID,
-  [STORE_KEYS.firstStart]: false,
 
   // runtime
   [STORE_KEYS.testEnvironment]: true,
