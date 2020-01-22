@@ -43,5 +43,6 @@ module.exports = {
     'object-curly-newline': 'off',
     'arrow-body-style': 'off',
     'no-continue': 'off',
+    'no-param-reassign': 'off',
   },
 };
