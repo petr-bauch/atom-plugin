@@ -50,7 +50,6 @@ describe('Deepcode Plugin tests', () => {
         STORE_KEYS.confirmedFolders,
         STORE_KEYS.allowedFiles,
         STORE_KEYS.bundleID,
-        STORE_KEYS.firstStart,
       ];
       for (const key of keys) {
         expect(state[key]).toEqual(mockState[key]);
