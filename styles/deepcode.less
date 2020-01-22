@@ -177,6 +177,7 @@
   .dc-table {
     width: 100%;
     margin-top: 4px;
+    padding-bottom: 40px;
 
     .icon {
       &:before {
@@ -212,12 +213,33 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        .badge {
-          color: @text-color-highlight;
-          background-color: @light-background;
-          border-radius: 50%;
+        .badges {
+          display: flex;
+          align-items: center;
           margin-left: 8px;
-          font-size: 9px;
+
+          .badge-icon {
+            display: flex;
+            align-items: baseline;
+            margin-right: 8px;
+            font-size: 10px;
+            padding-top: 3px;
+
+            &.info {
+              color: lighten(@info, 30%);
+            }
+            &.warning {
+              color: lighten(@warning, 30%);
+            }
+            &.critical {
+              color: lighten(@critical, 30%);
+            }
+            .icon {
+              &:before {
+                font-size: 12px;
+              }
+            }
+          }
         }
       }
     }
