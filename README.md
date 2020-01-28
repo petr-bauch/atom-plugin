@@ -72,7 +72,7 @@ There are two key steps here:
     
    1. Ignore particular alert directly by using `Ignore for line` or `Ignore for file`:
 
-   ![deepcode problem](images/problem.png)
+      ![deepcode problem](images/problem.png)
 
    2. Deepcode will create a comment, that will inform our analysis engine to ignore it. Don't forget to specify a description why you think it needs to be ignored. Your feedback will improve our engine over time:
 
