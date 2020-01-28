@@ -16,6 +16,9 @@
    3. [How to ignore suggestions (text)](#how-to-ignore-suggestions-text)
    4. [How to ignore suggestions (video)](#how-to-ignore-suggestions-video)
    5. [.dcignore file](#dcignore-file)
+   6. [Rescan](#rescan)
+   7. [View results online](#view-results-online)
+   8. [Configuration](#configuration)
 4. [Feedback and contact](#feedback-and-contact)
 
 # DeepCode package
@@ -91,6 +94,24 @@ There are two key steps here:
    mocked_for_tests
    **/models/*_molecule.js
    ```
+
+## Rescan
+
+- If you need to restart the analysis or it fails for any reason, you can easily analyse the project again by clicking `Scan project`:
+
+   ![rescan-project](images/rescan-project.png)
+
+## View results online
+
+- If you need to view the results online or you want to see example fixes, you could go to the analysis by clicking `View results online`:
+
+   ![view-results-online](images/view-results-online.png)
+
+## Configuration
+
+- If you need to update the url to the DeepCode server in a self-managed environment or restart the login process, you could do so by clicking on `Settings`:
+
+   ![configuration](images/configuration.png)
 
 # Feedback and contact
 
