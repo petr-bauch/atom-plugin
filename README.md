@@ -97,7 +97,7 @@ There are two key steps here:
 
 ## Rescan
 
-- If you need to restart the analysis or it fails for any reason, you can easily analyse the project again by clicking `Scan project`:
+- If you need to restart the analysis or if it fails for any reason, you can easily analyse the project again by clicking `Scan project`:
 
    ![rescan-project](images/rescan-project.png)
 
