@@ -300,12 +300,6 @@
       text-overflow: ellipsis;
       position: relative;
 
-      &:hover {
-        background-color: @light-background;
-      }
-      &.active {
-        background-color: @active-background;
-      }
       .pos {
         color: @text-color;
         margin-right: 8px;
@@ -314,8 +308,10 @@
         color: @text-color-subtle;
       }
       .row-buttons {
-        display: flex;
+        display: none;
+        opacity: 0;
         align-items: center;
+        transition: all 0.3s linear;
 
         .row-btn {
           background-color: @inset-panel-background-color;
@@ -325,6 +321,14 @@
           color: @text-color;
           margin-left: 8px;
           padding: 2px 6px;
+        }
+      }
+      &:hover,
+      &.active {
+        background-color: @light-background;
+        .row-buttons {
+          display: flex;
+          opacity: 1;
         }
       }
       &:before {
