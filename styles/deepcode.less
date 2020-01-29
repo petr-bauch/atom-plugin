@@ -308,10 +308,10 @@
         color: @text-color-subtle;
       }
       .row-buttons {
-        display: none;
-        opacity: 0;
+        display: flex;
+        opacity: 0.7;
         align-items: center;
-        transition: all 0.3s linear;
+        transition: all 0.2s linear;
 
         .row-btn {
           background-color: @inset-panel-background-color;
@@ -327,7 +327,6 @@
       &.active {
         background-color: @light-background;
         .row-buttons {
-          display: flex;
           opacity: 1;
         }
       }
