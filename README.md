@@ -8,17 +8,15 @@
 
 1. [DeepCode package - what is it?](#deepcode-package)
 2. [Installation](#installation)
-   1. [Video on how to install the package](#video-on-how-to-install-the-package)
 3. [How to use it?](#how-to-use-it)
    1. [PROTIP: DeepCode analysis on Save](#protip---deepcode-analysis-on-save)
-   2. [Video on how to use the package](#video-on-how-to-use-the-package)
+   2. [How to ignore suggestions](#how-to-ignore-suggestions)
+   3. [.dcignore file](#dcignore-file)
+   4. [Rescan](#rescan)
+   5. [View results online](#view-results-online)
+   6. [Video on how to use the package](#video-on-how-to-use-the-package)
       1. [Tips on project onboarding](#tips-on-project-onboarding)
-   3. [How to ignore suggestions (text)](#how-to-ignore-suggestions-text)
-   4. [How to ignore suggestions (video)](#how-to-ignore-suggestions-video)
-   5. [.dcignore file](#dcignore-file)
-   6. [Rescan](#rescan)
-   7. [View results online](#view-results-online)
-   8. [Configuration](#configuration)
+   7. [Configuration](#configuration)
 4. [Feedback and contact](#feedback-and-contact)
 
 # DeepCode package
@@ -41,9 +39,9 @@ Java, JavaScript, Python, TypeScript and XML are currently supported. C/C++ supp
 
 ## Video on how to install the package
 
-- We've prepared a short video on how to install the package. Head over to youtube to quickly get the package up and running:
-
-   <a href="https://www.youtube.com/watch?v=TODO&utm_source=atom-package-readme" target="_blank"><img src="images/how-to-install-atom-package.png"></a>
+- Installing the package is straightforward:
+  - Using `apm` (Atom's package manager) open the terminal and run `apm install deepcode`.
+  - Open Atom's Preferences and then Install. Search for the `deepcode` package.
 
 # How to use it?
 
@@ -54,9 +52,7 @@ Java, JavaScript, Python, TypeScript and XML are currently supported. C/C++ supp
 
 ## Video on how to use the package
 
-- Here is a video on how to use the package. In short - don't forget to save and you would be in good hands:
-
-   <a href="https://www.youtube.com/watch?v=TODO&utm_source=atom-package -readme" target="_blank"><img src="images/how-to-use-atom-package.png"></a>
+- WIP: We are working on a video. In short - don't forget to save and you would be in good hands, DeepCode analysis is automatically triggered and results shown.
 
 ### Tips on project onboarding
 
@@ -69,7 +65,7 @@ informing you about issues in code:
 
    ![deepcode progress](images/progress.png)
 
-## How to ignore suggestions (text)
+## How to ignore suggestions
 
 There are two key steps here:
     
@@ -78,12 +74,6 @@ There are two key steps here:
       ![deepcode problem](images/problem.png)
 
    2. Deepcode will create a comment, that will inform our analysis engine to ignore it. Don't forget to specify a description why you think it needs to be ignored. Your feedback will improve our engine over time:
-
-## How to ignore suggestions (video)
-
-- If the above information is not enough and want to see it in action, here is a video:
-
-   <a href="https://www.youtube.com/watch?v=TODO&utm_source=atom-package-readme" target="_blank"><img src="images/how-to-toggle-suggestions.png"></a>
 
 ## .dcignore file 
 
