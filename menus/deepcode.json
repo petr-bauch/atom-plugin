@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "DeepCode: Open panel",
+        "command": "deepcode:open-problems-panel"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "DeepCode",
+          "submenu": [
+            {
+              "label": "Open panel",
+              "command": "deepcode:open-problems-panel"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

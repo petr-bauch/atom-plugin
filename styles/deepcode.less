@@ -1,0 +1,481 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+@width-severity: 24px;
+@width-position: 100px;
+@width-file: 50%;
+@width-message: 50%;
+@active-background: lighten(@tool-panel-background-color, 7%);
+@light-background: lighten(@tool-panel-background-color, 3%);
+@title-color: lighten(@background-color-info, 20%);
+
+@critical: @background-color-error;
+@warning: @background-color-warning;
+@info: @background-color-info;
+@ok: @background-color-success;
+
+.wavy-border(@color) {
+  background-image:
+          linear-gradient(45deg, transparent 65%, @color 80%, transparent 90%),
+          linear-gradient(135deg, transparent 5%, @color 15%, transparent 25%),
+          linear-gradient(135deg, transparent 45%, @color 55%, transparent 65%),
+          linear-gradient(45deg, transparent 25%, @color 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+
+.linter-tooltip(@color) {
+  color: @text-color;
+  background-color: @inset-panel-background-color;
+  border: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+  border-left: 8px solid @color;
+  display: block;
+  padding: 4px 8px;
+  margin-left: 4px;
+  margin-top: 2px;
+
+  // Arrow pointer
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 7px;
+    width: 12px;
+    height: 12px;
+    background-color: @inset-panel-background-color;
+    border-top: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+    border-left: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+    transform: rotate(45deg);
+  }
+}
+
+.ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dc-status {
+  .name {
+    margin-right: 4px;
+  }
+
+  a.count {
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: @font-size;
+    opacity: 0.7;
+
+    .icon {
+      font-size: 9px;
+    }
+
+    &.ok {
+      color: lighten(@ok, 30%);
+    }
+    &.info {
+      color: lighten(@info, 30%);
+    }
+    &.warning {
+      color: lighten(@warning, 30%);
+    }
+    &.critical {
+      color: lighten(@critical, 30%);
+    }
+  }
+}
+
+.dc-panel {
+  width: 100%;
+  padding: 4px;
+
+  .dc-table-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: @light-background;
+    height: 32px;
+    padding: 0px 8px;
+
+    .left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .title {
+        .ellipsis();
+        color: @title-color;
+        font-size: 13px;
+      }
+      .analysis-url {
+        .ellipsis();
+        color: @text-color-subtle;
+        margin-left: 16px;
+        &:hover {
+          color: @text-color;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+
+      .icon {
+        font-size: 10px;
+      }
+
+      .plugin-buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+        height: 100%;
+
+        .pm-btn {
+          .ellipsis();
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          padding: 0px 12px;
+          cursor: pointer;
+          height: 100%;
+
+          &:hover {
+            background-color: @tool-panel-background-color;
+            color: @text-color-highlight;
+          }
+        }
+      }
+
+      .tree-settings {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-left: 12px;
+
+        .title {
+          .ellipsis();
+          margin-right: 4px;
+        }
+        a.collapse,
+        a.expand {
+          color: @text-color-subtle;
+          margin-left: 8px;
+          &:hover {
+            color: @text-color;
+          }
+        }
+      }
+    }
+  }
+
+  .dc-table {
+    width: 100%;
+    margin-top: 4px;
+    padding-bottom: 40px;
+
+    .icon {
+      &:before {
+        margin-right: 0px;
+      }
+    }
+
+    .row-file {
+      .row-file-main {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0px 4px;
+        height: 28px;
+
+        &:hover {
+          background-color: @light-background;
+        }
+        &.active {
+          background-color: @active-background;
+        }
+        .name {
+          color: @text-color-highlight;
+          margin-right: 8px;
+          font-size: 12px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .path {
+          color: @text-color-subtle;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .badges {
+          display: flex;
+          align-items: center;
+          margin-left: 8px;
+
+          .badge-icon {
+            display: flex;
+            align-items: baseline;
+            margin-right: 8px;
+            font-size: 10px;
+            padding-top: 3px;
+
+            &.info {
+              color: lighten(@info, 30%);
+            }
+            &.warning {
+              color: lighten(@warning, 30%);
+            }
+            &.critical {
+              color: lighten(@critical, 30%);
+            }
+            .icon {
+              &:before {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .row-description {
+      .row-description-main {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0px 4px 0px 20px;
+        height: 28px;
+        position: relative;
+
+        &:hover {
+          background-color: @light-background;
+        }
+        &.active {
+          background-color: @active-background;
+        }
+        .icon {
+          &.info {
+            color: @info;
+          }
+          &.warning {
+            color: @warning;
+          }
+          &.critical {
+            color: @critical;
+          }
+        }
+        .message {
+          color: @text-color;
+          margin-left: 8px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          height: 28px;
+          width: 1px;
+          background-color: rgba(255, 255, 255, 0.1);
+          top: 0;
+          left: 9px;
+        }
+      }
+    }
+
+    .row-marker {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 0px 4px 0px 40px;
+      height: 28px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+
+      .pos {
+        color: @text-color;
+        margin-right: 8px;
+      }
+      .info {
+        color: @text-color-subtle;
+      }
+      .row-buttons {
+        display: flex;
+        opacity: 0.7;
+        align-items: center;
+        transition: all 0.2s linear;
+
+        .row-btn {
+          background-color: @inset-panel-background-color;
+          border: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+          border-radius: 4px;
+          font-size: 12px;
+          color: @text-color;
+          margin-left: 8px;
+          padding: 2px 6px;
+        }
+      }
+      &:hover,
+      &.active {
+        background-color: @light-background;
+        .row-buttons {
+          opacity: 1;
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        height: 28px;
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        top: 0;
+        left: 24px;
+      }
+    }
+  }
+}
+
+.tooltip.top.dc-tooltip {
+  min-width: 120px;
+
+  .tooltip-arrow {
+    border-top-color: @tool-panel-background-color;
+  }
+  .tooltip-inner {
+    background-color: @tool-panel-background-color;
+    padding: 8px 4px;
+
+    .dc-menu-container {
+      background-color: @tool-panel-background-color;
+      text-align: left;
+
+      .dc-menu-item {
+        padding: 8px 16px;
+        cursor: pointer;
+        text-align: left;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: @base-background-color;
+        }
+      }
+    }
+
+    .dc-scanning-container,
+    .dc-upload-container,
+    .dc-analysis-container,
+    .dc-composing-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 8px;
+      text-align: left;
+      min-width: 250px;
+
+      .icon {
+        font-size: @component-icon-size;
+        margin-right: 8px;
+      }
+
+      .info-container {
+        width: 100%;
+
+        .title {
+          width: 100%;
+          padding: 4px;
+        }
+        .info {
+          width: 100%;
+          padding: 4px;
+          font-size: @font-size;
+        }
+      }
+    }
+
+    .dc-progress-bar-container {
+      background-color: @tool-panel-background-color;
+      width: 100%;
+      height: 2px;
+      margin-top: 4px;
+      padding: 0px 8px 0px 4px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &.start {
+        justify-content: flex-start;
+      }
+
+      &.end {
+        justify-content: flex-end;
+      }
+
+      .dc-bar {
+        background-color: @background-color-info;
+        height: 2px;
+        width: 0;
+        transition: width 0.2s ease-out;
+      }
+    }
+  }
+}
+
+.dc-linter-info {
+  .wavy-border(@info);
+}
+.dc-linter-warning {
+  .wavy-border(@warning);
+}
+.dc-linter-critical {
+  .wavy-border(@critical);
+}
+
+.dc-linter-overlay {
+  display: block;
+  transition: all 0.1s linear;
+  position: fixed;
+  z-index: 100;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.info {
+    .linter-tooltip(@info);
+  }
+  &.warning {
+    .linter-tooltip(@warning);
+  }
+  &.critical {
+    .linter-tooltip(@critical);
+  }
+
+  .buttons-box {
+    display: flex;
+    margin-top: 8px;
+
+    .btn {
+      background-color: @inset-panel-background-color;
+      border: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+      border-radius: 4px;
+      font-size: @font-size;
+      color: @text-color;
+    }
+
+    .btn-line {
+      margin-right: 8px;
+    }
+  }
+}
