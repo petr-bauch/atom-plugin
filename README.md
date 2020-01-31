@@ -1,7 +1,5 @@
 # DeepCode package for Atom
 
-> Package is still under active development.
-
 **The Atom package provided by <a href="https://www.deepcode.ai/">DeepCode.ai</a> finds bugs and critical vulnerabilities in your code. We support Java, Python, JavaScript, TypeScript and XML.**
 
 # Table of Contents
