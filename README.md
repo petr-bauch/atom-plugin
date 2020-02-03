@@ -42,7 +42,7 @@ Installing the package is rather straightforward. You could use `apm` (Atom's pa
 
 - Open Atom's Preferences and then Install. Search for the `deepcode` package. Here is a video how to do this:
 
-   <a href="https://www.youtube.com/watch?v=hhiZWg6nnKs&utm_source=atom-package-readme" target="_blank"><img src="images/install-atom-package.png"></a>
+   [![How to install Deepcode package](images/install-atom-package.png)](https://www.youtube.com/watch?v=hhiZWg6nnKs&utm_source=atom-package-readme)
 
 ## Tips on project onboarding
 
@@ -66,7 +66,7 @@ informing you about issues in code:
 
 - Here is a video on how to use the package. In short - don't forget to save and you would be in good hands:
 
-   <a href="https://www.youtube.com/watch?v=JiUKBcCY3uo&utm_source=atom-package-readme" target="_blank"><img src="images/atom-usage.png"></a>
+   [![How to use Deepcode package](images/atom-usage.png)](https://www.youtube.com/watch?v=JiUKBcCY3uo&utm_source=atom-package-readme)
 
 ## How to ignore suggestions
 
