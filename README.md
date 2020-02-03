@@ -6,6 +6,8 @@
 
 1. [DeepCode package - what is it?](#deepcode-package)
 2. [Installation](#installation)
+   1. [Video on how to install the extension](#video-on-how-to-install-the-extension)
+   2. [Tips on project onboarding](#tips-on-project-onboarding)
 3. [How to use it?](#how-to-use-it)
    1. [PROTIP: DeepCode analysis on Save](#protip---deepcode-analysis-on-save)
    2. [How to ignore suggestions](#how-to-ignore-suggestions)
@@ -13,7 +15,6 @@
    4. [Rescan](#rescan)
    5. [View results online](#view-results-online)
    6. [Video on how to use the package](#video-on-how-to-use-the-package)
-      1. [Tips on project onboarding](#tips-on-project-onboarding)
    7. [Configuration](#configuration)
 4. [Feedback and contact](#feedback-and-contact)
 
@@ -35,11 +36,24 @@ Java, JavaScript, Python, TypeScript and XML are currently supported. C/C++ supp
 
 # Installation
 
+Installing the package is rather straightforward. You could use `apm` (Atom's package manager) - open the terminal and run `apm install deepcode`. Below we show how to install it through the Preferences.
+ 
 ## Video on how to install the package
 
-- Installing the package is straightforward:
-  - Using `apm` (Atom's package manager) open the terminal and run `apm install deepcode`.
-  - Open Atom's Preferences and then Install. Search for the `deepcode` package.
+- Open Atom's Preferences and then Install. Search for the `deepcode` package. Here is a video how to do this:
+
+  <a href="https://www.youtube.com/watch?v=hhiZWg6nnKs&utm_source=atom-package-readme" target="_blank"><img src="images/install-atom-package.png"></a>
+
+## Tips on project onboarding
+
+- we are serious when it comes to your code. We upload and analyse your code only after you giving us the consent to do so. Your code is protected and used only for the purpose of
+informing you about issues in code:
+
+   ![confirm](images/confirm.png)
+
+- once the confirmation is in place we start uploading the files:
+
+   ![deepcode progress](images/progress.png)
 
 # How to use it?
 
@@ -51,17 +65,6 @@ Java, JavaScript, Python, TypeScript and XML are currently supported. C/C++ supp
 ## Video on how to use the package
 
 - WIP: We are working on a video. In short - don't forget to save and you would be in good hands, DeepCode analysis is automatically triggered and results shown.
-
-### Tips on project onboarding
-
-- we are serious when it comes to your code. We upload and analyse your code only after you giving us the consent to do so. Your code is protected and used only for the purpose of
-informing you about issues in code:
-
-   ![confirm](images/confirm.png)
-
-- once the confirmation is in place we start uploading the files:
-
-   ![deepcode progress](images/progress.png)
 
 ## How to ignore suggestions
 
