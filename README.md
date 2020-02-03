@@ -4,31 +4,31 @@
 
 # Table of Contents
 
-1. [DeepCode package - what is it?](#deepcode-package)
-2. [Installation](#installation)
-   1. [Video on how to install the package](#video-on-how-to-install-the-package)
-   2. [Tips on project onboarding](#tips-on-project-onboarding)
-3. [How to use it?](#how-to-use-it)
-   1. [PROTIP: DeepCode analysis on Save](#protip---deepcode-analysis-on-save)
-   2. [Video on how to use the package](#video-on-how-to-use-the-package)
-   3. [How to ignore suggestions](#how-to-ignore-suggestions)
-   4. [.dcignore file](#dcignore-file)
-   5. [Rescan](#rescan)
-   6. [View results online](#view-results-online)
-   7. [Configuration](#configuration)
-4. [Feedback and contact](#feedback-and-contact)
+1. DeepCode package - what is it?
+2. Installation
+   1. Video on how to install the package
+   2. Tips on project onboarding
+3. How to use it?
+   1. PROTIP: DeepCode analysis on Save
+   2. Video on how to use the package
+   3. How to ignore suggestions
+   4. .dcignore file
+   5. Rescan
+   6. View results online
+   7. Configuration
+4. Feedback and contact
 
 # DeepCode package
 
-Through the package you can quickly start using DeepCode's code review and analysis within your development workflow. The package will automatically alert you about critical vulnerabilities you need to solve in your code the moment when you hit Save in your IDE. With DeepCode's superior code review you save time finding and fixing bugs before they go to production. 
+Through the package you can quickly start using DeepCode's code review and analysis within your development workflow. The package will automatically alert you about critical vulnerabilities you need to solve in your code the moment when you hit Save in your IDE. With DeepCode's superior code review you save time finding and fixing bugs before they go to production.
 
 ## DeepCode's AI Engine finds bugs
 
-DeepCode uses symbolic AI to process hundreds of millions of commits in open source software projects and learns how to find serious coding issues. Because the platform determines the intent of the code — and not only the syntax mistakes — DeepCode identifies 10x more critical bugs and security vulnerabilities than other tools. 
+DeepCode uses symbolic AI to process hundreds of millions of commits in open source software projects and learns how to find serious coding issues. Because the platform determines the intent of the code — and not only the syntax mistakes — DeepCode identifies 10x more critical bugs and security vulnerabilities than other tools.
 
 ## Our AI provides explanation behind found bugs
 
-In order to show detailed explanation why something was flagged as bug we introduced a new AI technique called Ontology. With Ontology, we’ve integrated the capability to present logical conclusions within the DeepCode engine. 
+In order to show detailed explanation why something was flagged as bug we introduced a new AI technique called Ontology. With Ontology, we’ve integrated the capability to present logical conclusions within the DeepCode engine.
 
 ## Supported languages
 
@@ -37,7 +37,7 @@ Java, JavaScript, Python, TypeScript and XML are currently supported. C/C++ supp
 # Installation
 
 Installing the package is rather straightforward. You could use `apm` (Atom's package manager) - open the terminal and run `apm install deepcode`. Below we show how to install it through the Preferences.
- 
+
 ## Video on how to install the package
 
 - Open Atom's Preferences and then Install. Search for the `deepcode` package. Here is a video how to do this:
@@ -71,14 +71,14 @@ informing you about issues in code:
 ## How to ignore suggestions
 
 There are two key steps here:
-    
+
    1. Ignore particular alert directly by using `Ignore for line` or `Ignore for file`:
 
       ![deepcode problem](images/problem.png)
 
    2. Deepcode will create a comment, that will inform our analysis engine to ignore it. Don't forget to specify a description why you think it needs to be ignored. Your feedback will improve our engine over time:
 
-## .dcignore file 
+## .dcignore file
 
 - If you want to ignore certain files/folders (like node_modules for example), create a .dcignore file. You can create it in any folder on any level starting from the directory where your project resides. You may create multiple `.dcignore` files depending on your use case. This file supports [glob syntax](https://en.wikipedia.org/wiki/Glob_(programming)) with "*" and "**" to specify file masks and sub-folders:
 
