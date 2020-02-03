@@ -64,7 +64,9 @@ informing you about issues in code:
 
 ## Video on how to use the package
 
-- WIP: We are working on a video. In short - don't forget to save and you would be in good hands, DeepCode analysis is automatically triggered and results shown.
+- Here is a video on how to use the extension. In short - don't forget to save and you would be in good hands:
+
+  <a href="https://www.youtube.com/watch?v=JiUKBcCY3uo&utm_source=atom-package-readme" target="_blank"><img src="images/atom-usage.png"></a>
 
 ## How to ignore suggestions
 
