@@ -6,7 +6,7 @@
 
 1. [DeepCode package - what is it?](#deepcode-package)
 2. [Installation](#installation)
-   1. [Video on how to install the extension](#video-on-how-to-install-the-extension)
+   1. [Video on how to install the package](#video-on-how-to-install-the-package)
    2. [Tips on project onboarding](#tips-on-project-onboarding)
 3. [How to use it?](#how-to-use-it)
    1. [PROTIP: DeepCode analysis on Save](#protip---deepcode-analysis-on-save)
