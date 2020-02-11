@@ -3,9 +3,13 @@
 import { keys } from 'lodash';
 
 import { STORE_KEYS } from '../lib/constants/store';
-import { mockState, startMockServer, mockBundle, mockAnalysisResults, mockAnalysisTable } from './mocks';
-
-startMockServer();
+import {
+  mockState,
+  mockBundle,
+  mockAnalysisResults,
+  mockAnalysisTable,
+  bundleID as mockBundleID,
+} from './mocks';
 
 describe('Deepcode Plugin tests', () => {
   let workspaceElement;
@@ -107,11 +111,11 @@ describe('Deepcode Plugin tests', () => {
       });
 
       waitsForPromise(async () => {
-        const { bundleId, chunks } = await dcPackage.createRemoteBundle();
+        const { bundleId, chunks } = await dcPackage.createRemoteBundle(mockBundleID);
 
         console.log('Test #5: It creates remote bundle', { bundleId, chunks });
 
-        expect(bundleId).toEqual(mockState[STORE_KEYS.bundleID]);
+        expect(bundleId).toEqual(mockBundleID);
         expect(chunks.length).toEqual(1);
         expect(chunks[0].length).toEqual(4);
       })
@@ -130,8 +134,7 @@ describe('Deepcode Plugin tests', () => {
       });
 
       waitsForPromise(async () => {
-        const { origin, table } = await dcPackage.checkAnalysis();
-
+        const { origin, table } = await dcPackage.checkAnalysis(mockAnalysisResults);
         console.log('Test #6: It analyses bundle', { origin, table, mockAnalysisResults, mockAnalysisTable });
 
         expect(origin).toEqual(mockAnalysisResults);

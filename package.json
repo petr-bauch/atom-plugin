@@ -26,8 +26,6 @@
     "lodash": "^4.17.15",
     "open": "^7.0.0",
     "queue": "^6.0.1",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
     "@deepcode/tsc": "^1.0.0"
   },
   "consumedServices": {
@@ -42,7 +40,6 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
-    "nock": "^11.7.2",
     "prettier": "^1.19.1"
   }
 }

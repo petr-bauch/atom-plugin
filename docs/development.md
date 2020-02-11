@@ -62,3 +62,53 @@ $ apm publish <version-type>
 ```
 
 To read more about publishing visit [official docs page](https://flight-manual.atom.io/hacking-atom/sections/publishing/).
+
+## Usage with local package `@deepcode/tsc`
+
+In order to test plugin with local package `@deepcode/tsc` you should make the following steps.
+
+1. Clone package repository:
+```shell script
+$ git clone https://github.com/DeepCodeAI/tsc.git
+```
+
+> Probably you will need the `dev` branch with the latest changes:
+> ```shell script
+> $ git clone https://github.com/DeepCodeAI/tsc.git -b dev
+> ```
+
+2. Go to the package folder, install dependencies and create symlink:
+```shell script
+$ cd tsc
+$ npm install
+$ npm link
+```
+
+3. Go to the plugin folder and install package from local symlink:
+```shell script
+$ cd atom-plugin
+$ npm link @deepcode/tsc
+```
+
+After that you can add package to your `package.json`:
+```json
+"dependencies": {
+ "@deepcode/tsc": "^1.0.0"
+}
+```
+           
+and use this package as usual:
+```javascript
+import { ServiceAI } from '@deepcode/tsc';
+
+const AI = new ServiceAI();
+AI.init({
+ baseURL: 'https://www.deepcode.ai',
+ useDebug: true,
+});
+
+async login() {
+ const { sessionToken } = await AI.startSession({ source: 'atom' });
+ return Promise.resolve(sessionToken);
+}
+```
