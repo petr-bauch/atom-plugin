@@ -79,48 +79,6 @@ describe('Deepcode Plugin tests', () => {
     });
   });
 
-  describe('Creating hashes bundle', () => {
-    beforeEach(() => {
-      waitsForPromise(activationPromise);
-    });
-
-    it('creates bundle', () => {
-      waitsForPromise(async () => {
-        const bundle = await dcPackage.createBundle();
-
-        console.log('Test #4: It creates bundle', { bundle, mockBundle });
-
-        for (const key of keys(mockBundle.files)) {
-          const hash = bundle.files[key];
-          const mockHash = mockBundle.files[key];
-
-          expect(hash).toEqual(mockHash);
-        }
-      });
-    });
-  });
-
-  describe('Creating remote bundle', () => {
-    beforeEach(() => {
-      waitsForPromise(activationPromise);
-    });
-
-    it('creates remote bundle', () => {
-      dcPackage.setPluginState({
-        [STORE_KEYS.bundleID]: '',
-      });
-
-      waitsForPromise(async () => {
-        const { bundleId, chunks } = await dcPackage.createRemoteBundle(mockBundleID);
-
-        console.log('Test #5: It creates remote bundle', { bundleId, chunks });
-
-        expect(bundleId).toEqual(mockBundleID);
-        expect(chunks.length).toEqual(1);
-        expect(chunks[0].length).toEqual(4);
-      })
-    });
-  });
 
   describe('Analyzing', () => {
     beforeEach(() => {
