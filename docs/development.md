@@ -108,8 +108,13 @@ AI.init({
  useDebug: true,
 });
 
-async login() {
- const { sessionToken } = await AI.startSession({ source: 'atom' });
- return Promise.resolve(sessionToken);
-}
+const files = [
+  'sample_repository/sub_folder/test2.js',
+  'sample_repository/main.js'
+];
+
+await AI.analyse({
+  files,
+  sessionToken,
+});
 ```
