@@ -1,6 +1,6 @@
 # DeepCode package for Atom
 
-**The Atom package provided by <a href="https://www.deepcode.ai/">DeepCode.ai</a> finds bugs and critical vulnerabilities in your code. We support Java, Python, JavaScript, TypeScript and XML.**
+**The Atom package provided by <a href="https://www.deepcode.ai/">DeepCode.ai</a> finds bugs and critical vulnerabilities in your code. We support Java, C/C++, Python, JavaScript, TypeScript and XML.**
 
 # Table of Contents
 
@@ -32,7 +32,7 @@ In order to show detailed explanation why something was flagged as bug we introd
 
 ## Supported languages
 
-Java, JavaScript, Python, TypeScript and XML are currently supported. C/C++ support is coming very soon.
+Java, C/C++, JavaScript, Python, TypeScript and XML are currently supported.
 
 # Installation
 
