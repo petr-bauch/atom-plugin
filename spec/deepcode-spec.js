@@ -1,13 +1,8 @@
 'use babel';
 
-import { keys } from 'lodash';
-
 import { STORE_KEYS } from '../lib/constants/store';
 import {
   mockState,
-  mockBundle,
-  mockAnalysisResults,
-  mockAnalysisTable,
   bundleID as mockBundleID,
 } from './mocks';
 
@@ -76,28 +71,6 @@ describe('Deepcode Plugin tests', () => {
           expect(result).toEqual(mockState[STORE_KEYS.allowedFiles]);
         });
       });
-    });
-  });
-
-
-  describe('Analyzing', () => {
-    beforeEach(() => {
-      waitsForPromise(activationPromise);
-    });
-
-    it('analyses bundle', () => {
-      dcPackage.setPluginState({
-        [STORE_KEYS.analysisResults]: { origin: {}, table: [] },
-        [STORE_KEYS.analysisURL]: '',
-      });
-
-      waitsForPromise(async () => {
-        const { origin, table } = await dcPackage.checkAnalysis(mockAnalysisResults);
-        console.log('Test #6: It analyses bundle', { origin, table, mockAnalysisResults, mockAnalysisTable });
-
-        expect(origin).toEqual(mockAnalysisResults);
-        expect(table).toEqual(mockAnalysisTable);
-      })
     });
   });
 });
