@@ -1,11 +1,10 @@
 'use babel';
 
-import { keys } from 'lodash';
-
 import { STORE_KEYS } from '../lib/constants/store';
-import { mockState, startMockServer, mockBundle, mockAnalysisResults, mockAnalysisTable } from './mocks';
-
-startMockServer();
+import {
+  mockState,
+  bundleID as mockBundleID,
+} from './mocks';
 
 describe('Deepcode Plugin tests', () => {
   let workspaceElement;
@@ -72,71 +71,6 @@ describe('Deepcode Plugin tests', () => {
           expect(result).toEqual(mockState[STORE_KEYS.allowedFiles]);
         });
       });
-    });
-  });
-
-  describe('Creating hashes bundle', () => {
-    beforeEach(() => {
-      waitsForPromise(activationPromise);
-    });
-
-    it('creates bundle', () => {
-      waitsForPromise(async () => {
-        const bundle = await dcPackage.createBundle();
-
-        console.log('Test #4: It creates bundle', { bundle, mockBundle });
-
-        for (const key of keys(mockBundle.files)) {
-          const hash = bundle.files[key];
-          const mockHash = mockBundle.files[key];
-
-          expect(hash).toEqual(mockHash);
-        }
-      });
-    });
-  });
-
-  describe('Creating remote bundle', () => {
-    beforeEach(() => {
-      waitsForPromise(activationPromise);
-    });
-
-    it('creates remote bundle', () => {
-      dcPackage.setPluginState({
-        [STORE_KEYS.bundleID]: '',
-      });
-
-      waitsForPromise(async () => {
-        const { bundleId, chunks } = await dcPackage.createRemoteBundle();
-
-        console.log('Test #5: It creates remote bundle', { bundleId, chunks });
-
-        expect(bundleId).toEqual(mockState[STORE_KEYS.bundleID]);
-        expect(chunks.length).toEqual(1);
-        expect(chunks[0].length).toEqual(4);
-      })
-    });
-  });
-
-  describe('Analyzing', () => {
-    beforeEach(() => {
-      waitsForPromise(activationPromise);
-    });
-
-    it('analyses bundle', () => {
-      dcPackage.setPluginState({
-        [STORE_KEYS.analysisResults]: { origin: {}, table: [] },
-        [STORE_KEYS.analysisURL]: '',
-      });
-
-      waitsForPromise(async () => {
-        const { origin, table } = await dcPackage.checkAnalysis();
-
-        console.log('Test #6: It analyses bundle', { origin, table, mockAnalysisResults, mockAnalysisTable });
-
-        expect(origin).toEqual(mockAnalysisResults);
-        expect(table).toEqual(mockAnalysisTable);
-      })
     });
   });
 });

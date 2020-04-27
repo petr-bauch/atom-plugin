@@ -1,15 +1,13 @@
 'use babel';
 
 import path from 'path';
-import nock from 'nock';
-
 import { STORE_KEYS } from '../lib/constants/store';
-import { API } from '../lib/constants/api';
 
 const root = __dirname;
 const mockProjectPath = path.resolve(root, 'mocked_data');
 const analysedFile = `${mockProjectPath}/sample_repository/main.js`;
-const bundleID = 'gh/deepcode/DEEPCODE_PRIVATE_BUNDLE/ee0745667800961b0f35d6a4cb4fb12f72373d641e75e464f6632813102afcf1';
+
+export const bundleID = 'mocked-bundle-id';
 
 export const mockBundle = {
   files: {
@@ -38,21 +36,34 @@ export const mockAnalysisTable = [
     fileName: `${mockProjectPath}/sample_repository/main.js`,
     localPath: `${mockProjectPath}/sample_repository/main.js`,
     localName: 'main.js',
-    message: 'some message',
-    position: '[1, 3]',
-    severity: 1,
-    startRow: 1,
-    startCol: 3,
-    endRow: 2,
-    endCol: 4,
-    markers: [],
-    suggestionID: 'TestSuggestion',
-    suggestionIndex: '0',
-    suggestionData: {
-      rows: [1, 2],
-      cols:[3, 4],
-      markers: [],
-    },
+    rowID: `row-file-${mockProjectPath}/sample_repository/main.js`,
+    info: 1,
+    warning: 0,
+    critical: 0,
+    descriptions: [
+      {
+        startCol: 3,
+        startRow: 1,
+        endCol: 4,
+        endRow: 2,
+        severity: 1,
+        suggestionID: 'TestSuggestion',
+        message: 'some message',
+        rowID: `row-description-${mockProjectPath}/sample_repository/main.js-1`,
+        markers: [
+          {
+            startCol: 3,
+            startRow: 1,
+            endCol: 4,
+            endRow: 2,
+            suggestionID: 'TestSuggestion',
+            message: 'some message',
+            markerID: `dcMarker-${mockProjectPath}/sample_repository/main.js-1-3-TestSuggestion`,
+            rowID: `row-marker-${mockProjectPath}/sample_repository/main.js-1-3-TestSuggestion`,
+          },
+        ],
+      },
+    ],
   },
 ];
 
@@ -72,33 +83,4 @@ export const mockState = {
 
   // runtime
   [STORE_KEYS.testEnvironment]: true,
-};
-
-export const startMockServer = () => {
-
-  const baseURL = mockState[STORE_KEYS.serviceURL];
-  const sessionToken = mockState[STORE_KEYS.sessionToken];
-
-  const mockedServer = nock(baseURL, {
-    reqheaders: {
-      'Session-Token': sessionToken,
-    }
-  });
-
-  mockedServer.get(API.filters).reply(200, mockState[STORE_KEYS.allowedFiles]);
-  mockedServer.post(API.createBundle).reply(200, {
-    statusCode: 200,
-    bundleId: bundleID,
-  });
-  mockedServer.post(`${API.createBundle}/${bundleID}`).reply(200, {
-    statusCode: 200,
-    bundleId: bundleID,
-  });
-  mockedServer.get(`${API.analysis(bundleID)}`).reply(200, {
-    statusCode: 200,
-    status: 'DONE',
-    progress: 1.0,
-    analysisResults: mockAnalysisResults,
-    analysisURL: 'test_analysis_url'
-  });
 };
