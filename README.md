@@ -1,5 +1,7 @@
 # DeepCode package for Atom
 
+[![deepcode](https://www.deepcode.ai/api/gh/badge?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwbGF0Zm9ybTEiOiJnaCIsIm93bmVyMSI6IkRlZXBDb2RlQUkiLCJyZXBvMSI6ImF0b20tcGx1Z2luIiwiaW5jbHVkZUxpbnQiOmZhbHNlLCJhdXRob3JJZCI6MTI0NjksImlhdCI6MTU5NjA5Njg3Nn0.Mk5vwjpwcmPVIK8yAFWslIcPMCrKboIhGUBz47-6AFc)](https://www.deepcode.ai/app/gh/DeepCodeAI/atom-plugin/_/dashboard?utm_content=gh%2FDeepCodeAI%2Fatom-plugin)
+
 **The Atom package provided by <a href="https://www.deepcode.ai/">DeepCode.ai</a> finds bugs and critical vulnerabilities in your code. We support Java, C/C++, Python, JavaScript and TypeScript.**
 
 # Table of Contents
